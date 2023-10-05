@@ -59,7 +59,9 @@
 }
 button {
   width: 60px;
+  background-color: transparent;
 }
 .arrow {
   width: 100%;
+  background-color: transparent;
 }
