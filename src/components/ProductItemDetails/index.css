@@ -1,0 +1,47 @@
+.loader {
+  width: 100px;
+}
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .detailsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .imgContainer {
+    width: 50%;
+  }
+  .image {
+    width: 100%;
+  }
+  .itemDetailsContainer {
+    width: 60%;
+  }
+}
+.imgContainer {
+  width: 300px;
+}
+.image {
+  width: 250px;
+}
+.moreItem {
+  width: 250px;
+}
+span {
+  background-color: #9c1212;
+  color: white;
+  border-radius: 12px;
+  padding: 5px;
+}
+.similarProducts {
+  display: block;
+  justify-content: space-between;
+}
+.moreItem {
+  width: 250px;
+}

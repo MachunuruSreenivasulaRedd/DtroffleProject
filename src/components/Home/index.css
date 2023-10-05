@@ -1,0 +1,65 @@
+.input {
+  color: black;
+  width: 230px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 12px;
+  margin-left: 20px;
+  font-weight: bold;
+  margin-right: 30px;
+}
+.inputContainer {
+  display: flex;
+  justify-content: center;
+}
+.productsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+.item {
+  width: 100%;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+.productImage {
+  width: 250px;
+  height: 200px;
+  border-radius: 12px;
+}
+@media (min-width: 768px) {
+  .item {
+    width: 30%;
+  }
+  .productsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .productImage {
+    width: 280px;
+    height: 280px;
+  }
+}
+.title {
+  color: blue;
+  font-size: 20px;
+}
+.price {
+  background-color: goldenrod;
+  color: white;
+  font-weight: 500;
+  width: 90px;
+  padding: 7px;
+  border-radius: 12px;
+  text-align: center;
+}
+button {
+  width: 60px;
+}
+.arrow {
+  width: 100%;
+}
