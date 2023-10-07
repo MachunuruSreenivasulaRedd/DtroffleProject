@@ -45,3 +45,8 @@ span {
 .moreItem {
   width: 250px;
 }
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

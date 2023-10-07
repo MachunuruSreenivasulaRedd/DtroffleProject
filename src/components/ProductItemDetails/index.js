@@ -24,7 +24,7 @@ class ProductItemDetails extends Component {
   render() {
     const {productDetails, isLoading} = this.state
     return isLoading ? (
-      <div data-testid="loader">
+      <div className="loaderContainer">
         <img
           src="https://i.stack.imgur.com/IA7jp.gif"
           alt="loader"

@@ -65,3 +65,8 @@ button {
   width: 100%;
   background-color: transparent;
 }
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

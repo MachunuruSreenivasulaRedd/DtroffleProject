@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import './index.css'
 
 class Home extends Component {
-  state = {searchInput: '', fetchedData: [], skip: 0}
+  state = {isLoading: true, searchInput: '', fetchedData: [], skip: 0}
 
   componentDidMount() {
     this.getSearchData()
@@ -41,13 +41,19 @@ class Home extends Component {
         `https://dummyjson.com/products/search?q=${userSearch}&limit=${userSearch.length}&skip=${skip}`,
       )
       const requestedData = await response.json()
-      this.setState({fetchedData: [...requestedData.products]})
+      this.setState({
+        fetchedData: [...requestedData.products],
+        isLoading: false,
+      })
     } else {
       const response = await fetch(
         `https://dummyjson.com/products?limit=6&skip=${skip}`,
       )
       const requestedData = await response.json()
-      this.setState({fetchedData: [...requestedData.products]})
+      this.setState({
+        fetchedData: [...requestedData.products],
+        isLoading: false,
+      })
     }
   }
 
@@ -56,7 +62,7 @@ class Home extends Component {
   }
 
   render() {
-    const {searchInput, fetchedData} = this.state
+    const {searchInput, fetchedData, isLoading} = this.state
     return (
       <div>
         <div className="inputContainer">
@@ -90,26 +96,36 @@ class Home extends Component {
             />
           </button>
         </div>
-        <div className="productsContainer">
-          {fetchedData.map(eachProduct => (
-            <Link
-              to={`/products/${eachProduct.id}`}
-              key={eachProduct.id}
-              className="item"
-            >
-              <div className="productCard">
-                <img
-                  src={eachProduct.thumbnail}
-                  alt="product"
-                  className="productImage"
-                />
-                <h1 className="title">{eachProduct.title}</h1>
-                <p className="description">{eachProduct.description}</p>
-                <p className="price">Rs {eachProduct.price} /-</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="loaderContainer">
+            <img
+              src="https://i.stack.imgur.com/IA7jp.gif"
+              alt="loader"
+              className="loader"
+            />
+          </div>
+        ) : (
+          <div className="productsContainer">
+            {fetchedData.map(eachProduct => (
+              <Link
+                to={`/products/${eachProduct.id}`}
+                key={eachProduct.id}
+                className="item"
+              >
+                <div className="productCard">
+                  <img
+                    src={eachProduct.thumbnail}
+                    alt="product"
+                    className="productImage"
+                  />
+                  <h1 className="title">{eachProduct.title}</h1>
+                  <p className="description">{eachProduct.description}</p>
+                  <p className="price">Rs {eachProduct.price} /-</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     )
   }
